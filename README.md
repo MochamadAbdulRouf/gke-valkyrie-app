@@ -39,18 +39,24 @@ docker build -t us-central1-docker.pkg.dev/qwiklabs-gcp-01-dd6279f0b9c8/valkyrie
 docker push us-central1-docker.pkg.dev/qwiklabs-gcp-01-dd6279f0b9c8/valkyrie-docker-repo/valkyrie-prod:v0.0.3
 ```
 
-7. Create and Expose a Deployment in Kubernetes, Get the Kubernetes credentials using ZONE(example: us-east-1) zone before you deploy the image onto the Kubernetes Cluster
+7. Running the script to create a cluster
+```bash
+chmod +x script-gke-cluster.sh
+./script-gke-cluster.sh
+```
+
+8. Create and Expose a Deployment in Kubernetes, Get the Kubernetes credentials using ZONE(example: us-east-1) zone before you deploy the image onto the Kubernetes Cluster
 ```bash
 gcloud container clusters get-credentials [your-cluster-name] --zone ZONE 
 ```
 note: change the ZONE by adjusting your cluster location
 
-8. Before you create deployments, Make sure you check and replace placeholder values in the `deployment.yaml` file and format should be `LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY/IMAGE`
+9. Before you create deployments, Make sure you check and replace placeholder values in the `deployment.yaml` file and format should be `LOCATION-docker.pkg.dev/PROJECT-ID/REPOSITORY/IMAGE`
 
-9. Create deployments from the `deployment.yaml` and `service.yaml` files 
+10. Create deployments from the `deployment.yaml` and `service.yaml` files 
 ```bash
 kubectl create -f deployment.yaml
 kubectl create -f service.yaml
 ```
 
-10. From the Navigation Menu, Select Kubernetes Engine > Gateways, Services & Ingress.Click on the `load balancer IP Address` of the valkyrie-dev service to verify your services are up and running.
+11. From the Navigation Menu, Select Kubernetes Engine > Gateways, Services & Ingress.Click on the `load balancer IP Address` of the valkyrie-dev service to verify your services are up and running.
