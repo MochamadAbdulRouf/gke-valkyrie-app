@@ -16,7 +16,7 @@ Note: This is an efficient way to push Docker images to Artifact Registry.
 
 3. Create repository in Artifact Registry.Use Docker format and use the `REGION` your region as the location
 
-4. Before you can push or pull images, configure Docker to use the google cloud CLI to authenticate request to Artifact Registry (GCR).
+4. Before you can push or pull images, configure Docker to use the google cloud CLI to authenticate request to Artifact Registry (AR).
 ```bash
 gcloud auth configure-docker Region-docker.pkg.dev
 ```
